@@ -5,66 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matte Red Dashboard</title>
     <link rel="stylesheet" href="style.css">
-    <script>
-        // Get all game files dynamically
-        const games = [
-            { name: '3D Dash', file: 'games/3dash.html', emoji: '🚀' },
-            { name: 'AI Game', file: 'games/AI.html', emoji: '🤖' },
-            { name: 'Advance Wars', file: 'games/Advancewars.html', emoji: '⚔️' },
-            { name: 'Aquapark', file: 'games/Aquapark.html', emoji: '🌊' },
-            { name: 'BTD5', file: 'games/BTD5.html', emoji: '🎈' },
-            { name: 'Backrooms', file: 'games/Backrooms2d.html', emoji: '📦' },
-            { name: 'Ballistic', file: 'games/Ballistic.html', emoji: '🎯' },
-            { name: 'Bank Robbery', file: 'games/Bankrobbery.html', emoji: '💰' },
-            { name: 'Brawl Stars', file: 'games/BrawlStars.html', emoji: '⭐' },
-            { name: 'Basket Random', file: 'games/basketrandom.html', emoji: '🏀' },
-            { name: 'Brotato', file: 'games/brotato.html', emoji: '🥔' },
-            { name: 'AI Chatbot', file: 'games/clai.html', emoji: '💬' },
-            { name: 'Backrooms CL', file: 'games/clbackrooms.html', emoji: '🏚️' },
-            { name: 'Fall Guys', file: 'games/clfallguys.html', emoji: '👥' },
-            { name: 'Funny Shooter', file: 'games/clfunnyshooter2.html', emoji: '🔫' },
-            { name: 'Gorilla Tag', file: 'games/clgorillatag.html', emoji: '🦍' },
-            { name: 'Granny 2', file: 'games/clgranny2.html', emoji: '👵' },
-            { name: 'Sandboxels', file: 'games/clsandboxels.html', emoji: '🎮' },
-            { name: 'Cookie Clicker', file: 'games/cookieclicker.html', emoji: '🍪' },
-            { name: 'Doge Miner', file: 'games/dogeminer.html', emoji: '🐕' },
-            { name: 'Getaway Shootout', file: 'games/getawayshootout.html', emoji: '💨' },
-            { name: 'Gladi Hoppers', file: 'games/gladihoppers.html', emoji: '🦗' },
-            { name: 'Eaglercraft', file: 'games/EaglercraftX_1.8_u53_Offline_Signed.html', emoji: '⛏️' },
-            { name: 'FNAF', file: 'games/FNAF.html', emoji: '🐻' },
-            { name: 'FNAF 2', file: 'games/FNAF2.html', emoji: '🐻' },
-            { name: 'FNAF 3', file: 'games/FNAF3.html', emoji: '🐻' },
-            { name: 'FNAF 4', file: 'games/FNAF4.html', emoji: '🐻' },
-            { name: 'Fallout', file: 'games/Fallout.html', emoji: '☢️' },
-            { name: 'Gold Miner', file: 'games/Goldminer.html', emoji: '⛏️' },
-            { name: 'Gun Spin', file: 'games/Gunspin.html', emoji: '🔄' },
-            { name: 'Babel Tower', file: 'games/babeltower.html', emoji: '🏢' },
-            { name: 'Portal', file: 'games/portal.html', emoji: '🔷' },
-            { name: 'Shinobi', file: 'games/shinobi.html', emoji: '🥷' },
-            { name: 'Shooter', file: 'games/shooter.html', emoji: '💣' },
-            { name: 'Stick War', file: 'games/stickwar.html', emoji: '🎪' },
-            { name: 'Sound Board', file: 'games/soundboard.html', emoji: '🎵' },
-            { name: 'Source', file: 'games/source.html', emoji: '📜' }
-        ];
-
-        function loadGames() {
-            const gameGrid = document.getElementById('game-grid');
-            games.forEach(game => {
-                const gameCard = document.createElement('a');
-                gameCard.href = game.file;
-                gameCard.target = '_blank';
-                gameCard.rel = 'noopener noreferrer';
-                gameCard.className = 'game-card';
-                gameCard.innerHTML = `
-                    <div class="game-thumbnail">${game.emoji}</div>
-                    <span>${game.name}</span>
-                `;
-                gameGrid.appendChild(gameCard);
-            });
-        }
-
-        window.addEventListener('DOMContentLoaded', loadGames);
-    </script>
 </head>
 <body>
 
@@ -103,8 +43,155 @@
         <!-- TAB 2: GAMES -->
         <div class="section" id="section-games">
             <h1>Games</h1>
-            <div class="game-grid" id="game-grid">
-                <!-- Games will be loaded here by JavaScript -->
+            <div class="game-grid">
+                <a href="games/3dash.html" target="_blank" class="game-box">
+                    <div class="game-icon">🚀</div>
+                    <span>3D Dash</span>
+                </a>
+                <a href="games/AI.html" target="_blank" class="game-box">
+                    <div class="game-icon">🤖</div>
+                    <span>AI Game</span>
+                </a>
+                <a href="games/Advancewars.html" target="_blank" class="game-box">
+                    <div class="game-icon">⚔️</div>
+                    <span>Advance Wars</span>
+                </a>
+                <a href="games/Aquapark.html" target="_blank" class="game-box">
+                    <div class="game-icon">🌊</div>
+                    <span>Aquapark</span>
+                </a>
+                <a href="games/BTD5.html" target="_blank" class="game-box">
+                    <div class="game-icon">🎈</div>
+                    <span>BTD5</span>
+                </a>
+                <a href="games/Backrooms2d.html" target="_blank" class="game-box">
+                    <div class="game-icon">📦</div>
+                    <span>Backrooms</span>
+                </a>
+                <a href="games/Ballistic.html" target="_blank" class="game-box">
+                    <div class="game-icon">🎯</div>
+                    <span>Ballistic</span>
+                </a>
+                <a href="games/Bankrobbery.html" target="_blank" class="game-box">
+                    <div class="game-icon">💰</div>
+                    <span>Bank Robbery</span>
+                </a>
+                <a href="games/BrawlStars.html" target="_blank" class="game-box">
+                    <div class="game-icon">⭐</div>
+                    <span>Brawl Stars</span>
+                </a>
+                <a href="games/basketrandom.html" target="_blank" class="game-box">
+                    <div class="game-icon">🏀</div>
+                    <span>Basket Random</span>
+                </a>
+                <a href="games/brotato.html" target="_blank" class="game-box">
+                    <div class="game-icon">🥔</div>
+                    <span>Brotato</span>
+                </a>
+                <a href="games/clai.html" target="_blank" class="game-box">
+                    <div class="game-icon">💬</div>
+                    <span>AI Chatbot</span>
+                </a>
+                <a href="games/clbackrooms.html" target="_blank" class="game-box">
+                    <div class="game-icon">🏚️</div>
+                    <span>Backrooms CL</span>
+                </a>
+                <a href="games/clfallguys.html" target="_blank" class="game-box">
+                    <div class="game-icon">👥</div>
+                    <span>Fall Guys</span>
+                </a>
+                <a href="games/clfunnyshooter2.html" target="_blank" class="game-box">
+                    <div class="game-icon">🔫</div>
+                    <span>Funny Shooter</span>
+                </a>
+                <a href="games/clgorillatag.html" target="_blank" class="game-box">
+                    <div class="game-icon">🦍</div>
+                    <span>Gorilla Tag</span>
+                </a>
+                <a href="games/clgranny2.html" target="_blank" class="game-box">
+                    <div class="game-icon">👵</div>
+                    <span>Granny 2</span>
+                </a>
+                <a href="games/clsandboxels.html" target="_blank" class="game-box">
+                    <div class="game-icon">🎮</div>
+                    <span>Sandboxels</span>
+                </a>
+                <a href="games/cookieclicker.html" target="_blank" class="game-box">
+                    <div class="game-icon">🍪</div>
+                    <span>Cookie Clicker</span>
+                </a>
+                <a href="games/dogeminer.html" target="_blank" class="game-box">
+                    <div class="game-icon">🐕</div>
+                    <span>Doge Miner</span>
+                </a>
+                <a href="games/getawayshootout.html" target="_blank" class="game-box">
+                    <div class="game-icon">💨</div>
+                    <span>Getaway Shootout</span>
+                </a>
+                <a href="games/gladihoppers.html" target="_blank" class="game-box">
+                    <div class="game-icon">🦗</div>
+                    <span>Gladi Hoppers</span>
+                </a>
+                <a href="games/EaglercraftX_1.8_u53_Offline_Signed.html" target="_blank" class="game-box">
+                    <div class="game-icon">⛏️</div>
+                    <span>Eaglercraft</span>
+                </a>
+                <a href="games/FNAF.html" target="_blank" class="game-box">
+                    <div class="game-icon">🐻</div>
+                    <span>FNAF</span>
+                </a>
+                <a href="games/FNAF2.html" target="_blank" class="game-box">
+                    <div class="game-icon">🐻</div>
+                    <span>FNAF 2</span>
+                </a>
+                <a href="games/FNAF3.html" target="_blank" class="game-box">
+                    <div class="game-icon">🐻</div>
+                    <span>FNAF 3</span>
+                </a>
+                <a href="games/FNAF4.html" target="_blank" class="game-box">
+                    <div class="game-icon">🐻</div>
+                    <span>FNAF 4</span>
+                </a>
+                <a href="games/Fallout.html" target="_blank" class="game-box">
+                    <div class="game-icon">☢️</div>
+                    <span>Fallout</span>
+                </a>
+                <a href="games/Goldminer.html" target="_blank" class="game-box">
+                    <div class="game-icon">⛏️</div>
+                    <span>Gold Miner</span>
+                </a>
+                <a href="games/Gunspin.html" target="_blank" class="game-box">
+                    <div class="game-icon">🔄</div>
+                    <span>Gun Spin</span>
+                </a>
+                <a href="games/babeltower.html" target="_blank" class="game-box">
+                    <div class="game-icon">🏢</div>
+                    <span>Babel Tower</span>
+                </a>
+                <a href="games/portal.html" target="_blank" class="game-box">
+                    <div class="game-icon">🔷</div>
+                    <span>Portal</span>
+                </a>
+                <a href="games/shinobi.html" target="_blank" class="game-box">
+                    <div class="game-icon">🥷</div>
+                    <span>Shinobi</span>
+                </a>
+                <a href="games/shooter.html" target="_blank" class="game-box">
+                    <div class="game-icon">💣</div>
+                    <span>Shooter</span>
+                </a>
+                <a href="games/stickwar.html" target="_blank" class="game-box">
+                    <div class="game-icon">🎪</div>
+                    <span>Stick War</span>
+                </a>
+                <a href="games/soundboard.html" target="_blank" class="game-box">
+                    <div class="game-icon">🎵</div>
+                    <span>Sound Board</span>
+                </a>
+                <a href="games/source.html" target="_blank" class="game-box">
+                    <div class="game-icon">📜</div>
+                    <span>Source</span>
+                </a>
             </div>
         </div>
 
