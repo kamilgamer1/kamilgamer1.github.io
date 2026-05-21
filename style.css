@@ -172,3 +172,11 @@ h1 {
     border-right: 1px solid #1f232d;
 }
 
+/* Force the game blocks to clear the sidebar area */
+.game-grid {
+    margin-left: 240px !important;
+    width: calc(100% - 240px) !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    box-sizing: border-box !important;
+}
