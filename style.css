@@ -1,299 +1,164 @@
-/* Color Palette */
-:root {
-  --bg-main: #121417;       /* Off-black charcoal */
-  --bg-sidebar: #1a1d24;    /* Dark slate gray */
-  --accent-red: #d32f2f;    /* Deep matte red */
-  --hover-red: #b71c1c;     /* Darker red hover */
-  --text-primary: #ffffff;  /* Pure white */
-  --text-muted: #8b949e;    /* Cool gray */
-  --card-bg: rgba(255, 255, 255, 0.03); /* Subtle glass tint */
-}
-
+/* ==========================================================================
+   1. GLOBAL & CORE LAYOUT RESET
+   ========================================================================== */
 body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: var(--bg-main);
-  color: var(--text-primary);
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
+    background-color: #111318;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
 }
 
-/* Sidebar Layout */
+/* 🟢 HIDES THE WHITE RADIO CIRCLES FROM THE TOP CORNER */
+input[type="radio"][name="nav"] {
+    display: none;
+}
+
+/* ==========================================================================
+   2. SIDEBAR NAVIGATION STYLING
+   ========================================================================== */
 .sidebar {
-  width: 240px;
-  background-color: var(--bg-sidebar);
-  display: flex;
-  flex-direction: column;
-  border-right: 1px solid rgba(255, 255, 255, 0.05);
+    width: 240px;
+    background-color: #161920;
+    height: 100vh;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    top: 0;
+    border-right: 1px solid #1f232d;
 }
 
 .logo {
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  padding: 30px 20px;
-  color: var(--accent-red);
+    color: #e53935;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    font-size: 20px;
+    padding-left: 15px;
 }
 
 .nav-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .nav-links li {
-  width: 100%;
+    margin-bottom: 10px;
 }
 
-.nav-links input[type="radio"] {
-  display: none; /* Hide standard buttons */
+/* Make labels clickable and styled like sidebar items */
+.nav-links li label {
+    display: block;
+    color: #8a8f9d;
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
 }
 
-/* Sidebar Clickable Tabs */
-.nav-links label {
-  display: block;
-  padding: 15px 25px;
-  color: var(--text-muted);
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.2s ease;
+.nav-links li label:hover {
+    color: #ffffff;
+    background-color: #1c2029;
 }
 
-.nav-links label:hover {
-  background-color: rgba(255, 255, 255, 0.02);
-  color: var(--text-primary);
-}
-
-/* Active tab style */
-#tab-home:checked ~ .sidebar label[for="tab-home"],
-#tab-games:checked ~ .sidebar label[for="tab-games"] {
-  background-color: rgba(211, 47, 47, 0.1);
-  color: var(--accent-red);
-  border-left: 4px solid var(--accent-red);
-  padding-left: 21px;
-}
-
-/* Main Content Wrapper */
-.content {
-  flex: 1;
-  padding: 40px;
-  overflow-y: auto;
-}
-
-/* Hide content blocks by default */
+/* ==========================================================================
+   3. AUTOMATIC TAB SWITCHING ENGINE (CSS CONTROLLER)
+   ========================================================================== */
+/* Hide all main panels by default */
 .section {
-  display: none;
+    display: none;
 }
 
-/* Show sections based on radio button state */
-#tab-home:checked ~ .content #section-home,
-#tab-games:checked ~ .content #section-games {
-  display: block;
+/* When Home is clicked -> Show Home / Highlight Home Link */
+#tab-home:checked ~ .sidebar .nav-links label[for="tab-home"],
+#tab-games:checked ~ .sidebar .nav-links label[for="tab-games"],
+#tab-movies\/shows:checked ~ .sidebar .nav-links label[for="tab-movies/shows"] {
+    color: #e53935;
+    background-color: #1e1b24;
+    font-weight: 600;
+    border-left: 3px solid #e53935;
+    border-radius: 0 8px 8px 0;
+    padding-left: 15px;
+}
+
+/* Switch sections based on active tab state */
+#tab-home:checked ~ main #section-home,
+#tab-games:checked ~ main #section-games,
+#tab-movies\/shows:checked ~ main #section-movies\/shows {
+    display: block;
+}
+
+/* ==========================================================================
+   4. CONTENT PANELS & RESPONSIVE GRID LAYOUT
+   ========================================================================== */
+.main-content {
+    margin-left: 240px; /* Leaves perfect space for fixed sidebar */
+    padding: 40px 50px;
+    flex-grow: 1;
+    box-sizing: border-box;
 }
 
 h1 {
-  font-size: 28px;
-  margin-bottom: 30px;
-  font-weight: 700;
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 30px;
 }
 
-/* Grid System for Dashboard */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-/* Modern Matte Cards */
-.card {
-  background: var(--card-bg);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  padding: 25px;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-.card h3 {
-  margin: 0 0 10px 0;
-  font-size: 16px;
-  color: var(--text-muted);
-}
-
-.big-number {
-  font-size: 42px;
-  font-weight: 800;
-  margin: 0;
-  color: var(--text-primary);
-}
-
-/* Red Accent Card */
-.card-red {
-  background: linear-gradient(135deg, var(--accent-red), var(--hover-red));
-  border: none;
-}
-
-.card-red h3, .card-red .big-number {
-  color: #ffffff;
-}
-
-/* Active buttons */
-.action-btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: var(--accent-red);
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 14px;
-  transition: background-color 0.2s;
-}
-
-.action-btn:hover {
-  background-color: var(--hover-red);
-}
-
-/* Game Grid - 6 columns on desktop */
 .game-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 20px;
-  padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
 }
 
-/* Game Box with Circular Icons */
+/* ==========================================================================
+   5. BOX CARDS STYLING (USED FOR BOTH GAMES & MOVIES)
+   ========================================================================== */
 .game-box {
-  background: rgba(255, 255, 255, 0.03);
-  border: 2px solid rgba(211, 47, 47, 0.15);
-  border-radius: 12px;
-  padding: 20px;
-  text-decoration: none;
-  color: var(--text-primary);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  cursor: pointer;
-  min-height: 160px;
+    background-color: #161920;
+    border: 1px solid #222630;
+    border-radius: 14px;
+    width: 150px;
+    padding: 20px 15px;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    box-sizing: border-box;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s;
 }
 
 .game-box:hover {
-  transform: translateY(-8px);
-  border-color: var(--accent-red);
-  box-shadow: 0 0 20px rgba(211, 47, 47, 0.4);
-  background: rgba(211, 47, 47, 0.08);
+    transform: translateY(-5px);
+    border-color: #e53935;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Circular Icon Container */
 .game-icon {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
-  border: 2px solid rgba(211, 47, 47, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 48px;
-  transition: all 0.3s ease;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(145deg, #2c313d, #161920);
+    border: 1px solid #2d3341;
+    border-radius: 12px;
+    margin: 0 auto 14px auto;
+    transition: transform 0.2s;
 }
 
 .game-box:hover .game-icon {
-  border-color: var(--accent-red);
-  box-shadow: 0 0 15px rgba(211, 47, 47, 0.5);
-  transform: scale(1.1);
+    transform: scale(1.05);
 }
 
-/* Game Name Text */
 .game-box span {
-  font-weight: 600;
-  font-size: 13px;
-  text-align: center;
-  word-break: break-word;
-  color: rgba(255, 255, 255, 0.95);
-  transition: color 0.3s ease;
-}
-
-.game-box:hover span {
-  color: var(--accent-red);
-}
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-  .game-grid {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-
-@media (max-width: 1024px) {
-  .game-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-  }
-  
-  .game-box {
-    min-height: 150px;
-    padding: 18px;
-  }
-  
-  .game-icon {
-    width: 70px;
-    height: 70px;
-    font-size: 42px;
-  }
-}
-
-@media (max-width: 768px) {
-  .game-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-  }
-  
-  .game-box {
-    min-height: 140px;
-    padding: 15px;
-    gap: 10px;
-  }
-  
-  .game-icon {
-    width: 60px;
-    height: 60px;
-    font-size: 36px;
-  }
-  
-  .game-box span {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .game-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-  
-  .game-box {
-    min-height: 120px;
-    padding: 12px;
-  }
-  
-  .game-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 28px;
-  }
-  
-  .game-box span {
-    font-size: 11px;
-  }
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
