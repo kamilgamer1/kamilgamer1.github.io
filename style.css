@@ -162,3 +162,13 @@ h1 {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.sidebar {
+    width: 240px;
+    background-color: #161920;
+    height: 100vh;
+    padding: 30px 25px;
+    box-sizing: border-box;
+    border-right: 1px solid #1f232d;
+}
+
