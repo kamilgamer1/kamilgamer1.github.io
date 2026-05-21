@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+    
     <!-- CSS Controllers (Must remain at root level) -->
     <input type="radio" id="tab-home" name="nav" checked>
     <input type="radio" id="tab-games" name="nav">
+    <input type="radio" id="tab-movies/shows" name="nav">
 
     <!-- Sidebar Navigation -->
+
     <aside class="sidebar">
         <div class="logo">DASHBOARD</div>
         <ul class="nav-links">
@@ -201,10 +203,25 @@
                     <div class="game-icon"></div>
                     <span>All games</span>
                 </a>
+              </div>
+                        <!-- TAB 3: MOVIES / SHOWS -->
+        <div class="section" id="section-movies/shows">
+            <h1>Movies / Shows</h1>
+            <div class="game-grid">
+
+                <!-- Movie Box 1 -->
+                <a href="https://YOUR-MOVIE-LINK-1.com" target="_blank" class="game-box">
+                    <div class="game-icon"></div>
+                    <span>Movie Title 1</span>
+                </a>
+
+                <!-- Movie Box 2 -->
+                <a href="https://YOUR-MOVIE-LINK-2.com" target="_blank" class="game-box">
+                    <div class="game-icon"></div>
+                    <span>Movie Title 2</span>
+                </a>
             </div>
-        </div>
-
+            </div>
     </main>
-
 </body>
 </html>
