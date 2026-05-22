@@ -247,3 +247,11 @@ h1 {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
+h1 {
+    margin-left: 240px !important;
+    width: calc(100% - 240px) !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    box-sizing: border-box !important;
+}
